@@ -1,0 +1,80 @@
+﻿@model BulkyBookProject.Models.BookModel
+@{
+    ViewData["Title"] = "Edit Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Contact">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <form method="post" asp-action="EditBook">
+                <div class="border p-3 mt-4">
+                    <div class="abouttitle">
+                        <h2 class="text-primary styled">User Detail</h2>
+                    </div>
+                    <input asp-for="UserId" type="hidden" class="form-control" />
+                    <input asp-for="BookId" type="hidden" class="form-control" />
+                    <div class="mb-3">
+                        <label asp-for="BookName"> </label>
+                        <input asp-for="BookName" class="form-control" />
+                        <span asp-validation-for="BookName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="AuthorName"> </label>
+                        <input asp-for="AuthorName" class="form-control" />
+                        <span asp-validation-for="AuthorName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Publication"> </label>
+                        <input asp-for="Publication" class="form-control" />
+                        <span asp-validation-for="Publication" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Price"> </label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="QuantityInStock"> </label>
+                        <input asp-for="QuantityInStock" class="form-control" />
+                        <span asp-validation-for="QuantityInStock" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Availability"> </label>
+                        <input asp-for="Availability" class="form-control" />
+                        <span asp-validation-for="Availability" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="abouttitle">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@{
+    TempData.Keep("UserId");
+}
+
+
+@*the below section is writted to use the partial validation for client side*@
+@section scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

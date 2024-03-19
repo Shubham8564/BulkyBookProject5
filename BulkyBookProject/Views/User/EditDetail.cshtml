@@ -1,0 +1,68 @@
+﻿@model BulkyBookProject.Models.Category
+
+@{
+    ViewData["Title"] = "UserDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Contact">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <form method="post" asp-action="EditDetail">
+                <div class="border p-3 mt-4">
+                    <div class="abouttitle">
+                        <h2 class="text-primary styled">User Detail</h2>
+                    </div>
+                    <input asp-for="Id" type="hidden" class="form-control" />
+                    <div class="mb-3">
+                        <label asp-for="Name"> </label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Gender"> </label>
+                        <input asp-for="Gender" class="form-control" />
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="PhoneNumber"> </label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="EmailAddress"> </label>
+                        <input asp-for="EmailAddress" class="form-control" />
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password"> </label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Address"> </label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+
+                    <div class="abouttitle">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@*the below section is writted to use the partial validation for client side*@
+@section scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+
+

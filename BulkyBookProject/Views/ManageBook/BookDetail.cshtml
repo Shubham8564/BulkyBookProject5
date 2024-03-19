@@ -1,0 +1,93 @@
+﻿@model IEnumerable<BookModel>
+
+@{
+    ViewData["Title"] = "BookDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">User Detail</h2>
+        </div>
+    </div>
+
+    <br /><br />
+    <table class="table table-bordered   table-hover " style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Book Id
+                </th>
+                <th>
+                    Book Name
+                </th>
+                <th>
+                    Author Name
+                </th>
+                <th>
+                    Publication
+                </th>
+                <th>
+                    Price
+                <th>
+                    Quantity In Stock
+                </th>
+                <th>
+                    Availability
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.BookId
+                    </td>
+                    <td>
+                        @obj.BookName
+                    </td>
+                    <td>
+                        @obj.AuthorName
+                    </td>
+                    <td>
+                        @obj.Publication
+                    </td>
+                    <td>
+                        @obj.Price
+                    </td>
+                    <td>
+                        @obj.QuantityInStock
+                    </td>
+                     <td>
+                        @obj.Availability
+                    </td>
+
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a href="@Url.Action("EditBook", "ManageBook", new { obj.BookId })" class="btn btn-success">Edit</a>
+                            <a href="@Url.Action("DeleteBook", "ManageBook", new { BookId = obj.BookId, UserId = obj.UserId })" class="btn btn-danger">Delete</a>
+                            @* <a asp-controller="ManageBook" asp-action="DeleteBook" asp-route-id="@obj.BookId,@obj.UserId" class="btn btn-danger mx-2 "> <i class="bi bi-pencil-square"></i> Delete</a>*@ 
+                        </div>
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@if (TempData["Message"] != null)
+{
+    <script>
+        alert('@TempData["Message"]');
+    </script>
+}
+
